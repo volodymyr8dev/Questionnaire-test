@@ -1,0 +1,14 @@
+<div class="questions-list-wrapper">
+  <div class="questions">
+    <h1 class="questions-title">Questions List</h1>
+
+    <div class="questions-list" *ngIf="questions$ | async as questions">
+      <app-question
+        *ngFor="let question of questions"
+        [question]="question"
+      ></app-question>
+    </div>
+  </div>
+
+</div>
+

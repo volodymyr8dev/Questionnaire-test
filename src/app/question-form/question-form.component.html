@@ -1,0 +1,67 @@
+<div class="form-page">
+  <form [formGroup]="form" class="form">
+    <div class="form-item">
+      <label class="label">Your Question *</label>
+      <input class=" input" formControlName="question" />
+    </div>
+    <div class="form__item question-type">
+      <div class="type-wrapper">
+        <label class="form__label label">Select Question Type *</label>
+        <div class="input select" (click)="isMenuOpen = !isMenuOpen">
+          <span>{{ form.get("type")?.value }}</span>
+          <img
+            class="arrow"
+            [ngClass]="{ open: isMenuOpen }"
+            src="/assets/arrow.png"
+          />
+          <div class="select__list" *ngIf="isMenuOpen">
+            <div
+              class="select__option"
+              (click)="selectType(type)"
+              *ngFor="let type of questionTypesList"
+            >
+              {{ type }}
+            </div>
+          </div>
+          <div class="select__overlay" *ngIf="isMenuOpen"></div>
+        </div>
+      </div>
+
+      <div
+        class="form__chipset_box"
+        (click)="chipsetInput.focus()"
+        [ngClass]="{ 'dp-none': !isTypeOpen }"
+      >
+        <label class="label">Answer Options *</label>
+        <div class="input">
+          <span class="option-chipset" *ngFor="let option of options"
+          >{{ option }}
+            <span class="close" (click)="removeOption(option)" >x</span>
+          </span>
+
+          <input
+            (keydown)="addChip($event)"
+            (input)="inputOptions(chipsetInput.value)"
+            class="form__input chipset-input"
+            #chipsetInput
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <label class="label">Right Answer *</label>
+      <input class="input" formControlName="correctAnswer" />
+    </div>
+  </form>
+<div class="btn-center">
+  <button
+    class="button"
+    (click)="submitForm()"
+    [disabled]="form.invalid || (options.length < 2 && isTypeOpen)"
+  >
+    {{ buttonType }}
+  </button>
+</div>
+
+</div>

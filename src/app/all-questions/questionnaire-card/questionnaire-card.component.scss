@@ -1,0 +1,30 @@
+@import "src/styles";
+
+.card{
+  padding: 10px;
+  margin: 20px;
+  background-color: #f3f5f3;
+  border: 1px solid #dad9d9;
+  box-shadow: 2px 8px 8px rgba(155, 155, 162, 0.2);}
+
+.options{
+  display: flex;
+  flex-direction: column;
+}
+
+.open-input{
+  width: 100%;
+  padding: 6px;
+  font-size: 18px;
+  border: 1px solid #c7c3c3;
+  outline: none;
+}
+
+.item{
+  margin-top: 20px;
+}
+
+.button {
+  width: 120px;
+  @include questionButton;
+}

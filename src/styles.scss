@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Montserrat:wght@500&display=swap');
+
+:root {
+  --dark: #4a4b50;
+  --blue: #41d9e0;
+  --danger: #d34747;
+  --gray: #85898d;
+}
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Neue', cursiv;
+  background: #eab3b3;
+  color: var(--dark);
+}
+
+@mixin questionButton {
+  text-transform: capitalize;
+  white-space: nowrap;
+  border: none;
+  color: #ffffff;
+  background-color: var(--blue);
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+
+  &:hover {
+    background-color: #32a3a8;
+  }
+
+  &:active {
+    background-color: #1d6c70;
+  }
+
+  &:disabled {
+    cursor: auto;
+    background-color: #a1e2e5;
+  }
+}

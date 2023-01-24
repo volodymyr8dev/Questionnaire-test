@@ -1,0 +1,18 @@
+<div class="sidebar-opener" (click)="sidebarShow = !sidebarShow">
+  Sidebar
+</div>
+
+<div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
+  <div
+    class="sidebar-close"
+    (click)="sidebarShow = !sidebarShow"
+  >
+    X
+  </div>
+  <div class="sidebar-content">
+    <h1>Questionnaire</h1>
+    <div class="cursor" (click)="sidebarShow = !sidebarShow" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact: true}">Question List</div>
+    <div class="cursor" (click)="sidebarShow = !sidebarShow" routerLinkActive="active" routerLink="/create-question">Create Question</div>
+    <div class="cursor" (click)="sidebarShow = !sidebarShow" routerLinkActive="active" routerLink="/question-list">Go to Questions</div>
+  </div>
+</div>

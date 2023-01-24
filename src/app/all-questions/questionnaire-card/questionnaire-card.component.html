@@ -1,0 +1,34 @@
+<div class="card">
+  <h2 class="item">
+    {{question?.question}}
+  </h2>
+
+  <h4 class="item">{{question?.type}}</h4>
+
+  <div class="options item">
+    <label *ngFor="let option of question?.answerOptions">
+      <input (change)="selectAnswer(option, optionEl )" [disabled]="question?.isAnswered" [type]="type" name="questionnaire" #optionEl/>
+      {{option}}
+    </label>
+  </div>
+
+  <input class="open-input item"
+       [readonly]="question?.isAnswered || !this.isOpen"
+       (input)="inputAnswer(inputAnswerEl.value)"
+       [value]="answer" #inputAnswerEl/>
+
+  <div class="answers">
+    <div *ngIf="question?.isAnswered" class="item">
+      Correct answer: <b>{{question?.correctAnswer}}</b>
+    </div>
+
+    <div *ngIf="question?.isAnswered" class="item">Your answer: <b>{{answer}}</b></div>
+  </div>
+
+  <button
+    [disabled]="!answer && !question?.isAnswered"
+    (click)="submitCard()" class="button item">
+    {{question?.isAnswered ? 'Roll Back' : 'Answer'}}
+  </button>
+
+</div>
